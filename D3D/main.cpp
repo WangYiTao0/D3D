@@ -1,4 +1,4 @@
-#include "RenderWindow.h"
+#include "Engine.h"
 #pragma comment(lib,"d3d11.lib")
 #pragma comment(lib,"DirectXTK.lib")
 
@@ -7,11 +7,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	_In_ LPWSTR lpCmdLine,
 	_In_ int nCmdShow)
 {
-	RenderWindow rw;
-	rw.Initialize(hInstance, "WYTEngine", "MyWindowClass", 1600u, 900u);
-	while (rw.ProcessMessages() == true)
+	Engine engine;
+	engine.Initialize(hInstance, "WYTEngine", "MyWindowClass", 1600u, 900u);
+	while (engine.ProcessMessages() == true)
 	{
-
+		engine.Update();
 	}
 
 	return 0;
