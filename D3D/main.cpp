@@ -12,7 +12,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	while (engine.ProcessMessages() == true)
 	{
 		engine.Update();
+		engine.RenderFrame();
 	}
 
 	return 0;
 }
+
+
+//INPUT ASSEMBLER - COMPLETED
+//VERTEX SHADER - COMPLETED
+//RASTERIZER
+//PIXEL SHADER
+//OUTPUT MERGER
