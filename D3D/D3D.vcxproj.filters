@@ -34,6 +34,12 @@
     <Filter Include="HLSL">
       <UniqueIdentifier>{bba7d160-fa9f-4323-bdf6-8db2f3751d57}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Graphics\Imgui">
+      <UniqueIdentifier>{94418189-ee30-482a-afe7-949280c900fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphics\Imgui">
+      <UniqueIdentifier>{94663517-4dc3-401a-8d0d-82d9dcdbba8a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -77,6 +83,24 @@
     </ClCompile>
     <ClCompile Include="Graphics\Camera.cpp">
       <Filter>Source Files\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Imgui\imgui_impl_win32.cpp">
+      <Filter>Source Files\Graphics\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Imgui\imgui_widgets.cpp">
+      <Filter>Source Files\Graphics\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Imgui\imgui_impl_dx11.cpp">
+      <Filter>Source Files\Graphics\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Imgui\imgui_draw.cpp">
+      <Filter>Source Files\Graphics\Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics\Imgui\imgui.cpp">
+      <Filter>Source Files\Graphics\Imgui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +157,33 @@
     </ClInclude>
     <ClInclude Include="Graphics\Camera.h">
       <Filter>Header Files\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Imgui\imgui.h">
+      <Filter>Header Files\Graphics\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Imgui\imgui_impl_dx11.h">
+      <Filter>Header Files\Graphics\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Imgui\imgui_impl_win32.h">
+      <Filter>Header Files\Graphics\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Imgui\imgui_internal.h">
+      <Filter>Header Files\Graphics\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Imgui\imstb_rectpack.h">
+      <Filter>Header Files\Graphics\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Imgui\imstb_textedit.h">
+      <Filter>Header Files\Graphics\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Imgui\imstb_truetype.h">
+      <Filter>Header Files\Graphics\Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics\Imgui\imconfig.h">
+      <Filter>Header Files\Graphics\Imgui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

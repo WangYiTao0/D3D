@@ -9,12 +9,18 @@
 #include "IndexBuffer.h"
 #include "ConstantBuffer.h"
 #include "Camera.h"
+#include "..\Timer.h"
+#include "ImGUI\\imgui.h"
+#include "ImGUI\\imgui_impl_win32.h"
+#include "ImGUI\\imgui_impl_dx11.h"
 
 class Graphics
 {
 public:
 	bool Initialize(HWND hwnd, int width, int height);
 	void RenderFrame();
+
+	Camera camera;
 private:
 	bool InitializeDirectX(HWND hwnd);
 	bool InitializeShaders();
@@ -50,6 +56,5 @@ private:
 	int windowWidth = 0;
 	int windowHeight = 0;
 
-	Camera camera;
-
+	Timer fpsTimer;
 };
