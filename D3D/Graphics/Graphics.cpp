@@ -31,10 +31,18 @@ void Graphics::RenderFrame()
 
 	UINT offset = 0;
 
+	//Update Constant Buffer
+	constantBuffer.data.xOffset = 0.0f;
+	constantBuffer.data.yOffset = 0.5f;
+	if (!constantBuffer.ApplyChanges())
+		return;
+	this->deviceContext->VSSetConstantBuffers(0, 1, this->constantBuffer.GetAddressOf());
+
+	//Square
 	this->deviceContext->PSSetShaderResources(0u, 1u, this->myTexture.GetAddressOf());
 	this->deviceContext->IASetVertexBuffers(0, 1, vertexBuffer.GetAddressOf(), vertexBuffer.StridePtr(), &offset);
 	this->deviceContext->IASetIndexBuffer(indicesBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
-	this->deviceContext->DrawIndexed(6, 0, 0);
+	this->deviceContext->DrawIndexed(indicesBuffer.BufferSize(), 0, 0);
 
 	//Draw Text
 	spriteBatch->Begin();
@@ -261,27 +269,26 @@ bool Graphics::InitializeScene()
 	
 
 	//Load Index Data
-	D3D11_BUFFER_DESC indexBufferDesc;
-	ZeroMemory(&indexBufferDesc, sizeof(indexBufferDesc));
-	indexBufferDesc.Usage = D3D11_USAGE_DEFAULT;
-	indexBufferDesc.ByteWidth = sizeof(DWORD) * ARRAYSIZE(indices);
-	indexBufferDesc.BindFlags = D3D11_BIND_INDEX_BUFFER;
-	indexBufferDesc.CPUAccessFlags = 0;
-	indexBufferDesc.MiscFlags = 0;
-
-	D3D11_SUBRESOURCE_DATA indexBufferData;
-	indexBufferData.pSysMem = indices;
-	hr = device->CreateBuffer(&indexBufferDesc, &indexBufferData, indicesBuffer.GetAddressOf());
+	hr = this->indicesBuffer.Initialize(this->device.Get(), indices, ARRAYSIZE(indices));
 	if (FAILED(hr))
 	{
 		ErrorLogger::Log(hr, "Failed to create indices buffer.");
 		return hr;
 	}
 
+	//Load Texture
 	hr = DirectX::CreateWICTextureFromFile(this->device.Get(), L"Data\\Textures\\piano.png", nullptr, myTexture.GetAddressOf());
 	if (FAILED(hr))
 	{
 		ErrorLogger::Log(hr, "Failed to create wic texture from file.");
+		return false;
+	}
+
+	//Initialize Constant Buffer(s)
+	hr = this->constantBuffer.Initialize(this->device.Get(), this->deviceContext.Get());
+	if (FAILED(hr))
+	{
+		ErrorLogger::Log(hr, "Failed to initialize constant buffer.");
 		return false;
 	}
 
