@@ -185,6 +185,9 @@
     <ClInclude Include="Graphics\Imgui\imconfig.h">
       <Filter>Header Files\Graphics\Imgui</Filter>
     </ClInclude>
+    <ClInclude Include="COMException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="HLSL\VertexShader.hlsl">
