@@ -1,6 +1,7 @@
 #ifndef VertexBuffer_h__
 #define VertexBuffer_h__
 #include <d3d11.h>
+#include <memory>
 #include <wrl/client.h>
 
 template<class T>
